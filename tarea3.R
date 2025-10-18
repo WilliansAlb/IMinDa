@@ -8,7 +8,7 @@ data_fp <- data[, c("TOTAL_HIJOS",
                     "VIC_SEXO",       
                     "VIC_EDAD",        
                     "VIC_EST_CIV",     
-                    "VIC_TRABAJA",    
+                    "VIC_TRABAJA",
                     "VIC_REL_AGR")]   
 
 data_fp$VIC_EST_CIV <- factor(data_fp$VIC_EST_CIV,
@@ -36,9 +36,4 @@ reglas_fp <- fim4r(data_fp,
                    conf = 0.5)
 
 rf <- as(reglas_fp, "data.frame")
-
-
-rf_filtrado <- rf %>%
-  filter(grepl("Esposo|Conviviente|Exconviviente", LHS) |
-           grepl("Esposo|Conviviente|Exconviviente", RHS))
 
